@@ -1,9 +1,5 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IUnit
+public class Enemy : Unit
 {
-    public void Dispose()
-    {
-
-    }
 }

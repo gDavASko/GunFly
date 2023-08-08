@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-public class LevelFactory
+public class LevelFactory : ILevelFactory
 {
     private IAssetGetter _assetGetter = null;
     private ILevel curLevel = null;
@@ -15,7 +15,7 @@ public class LevelFactory
         if(curLevel != null)
             _assetGetter.UnloadResource();
 
-        var level = await _assetGetter.LoadResource<T>(id);
-        return level as T;
+        curLevel = await _assetGetter.LoadResource<T>(id);
+        return curLevel as T;
     }
 }
