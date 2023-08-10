@@ -1,17 +1,25 @@
 using System;
 using UnityEngine;
+using Zenject;
 
-public class PCInput : MonoBehaviour, IInput
+public class PCInput : IInput, ITickable
 {
     private KeyCode _jumpKeyCode = KeyCode.Space;
 
-    public Action OnJump { get; set; }
+    public Action<ActionType> OnAction { get; set; }
 
-    private void Update()
+    public void Tick()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(_jumpKeyCode))
         {
-            OnJump?.Invoke();
+            OnAction?.Invoke(ActionType.Jump);
+        }
+
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(_jumpKeyCode))
+        {
+            OnAction?.Invoke(ActionType.Attack);
         }
     }
+
+
 }

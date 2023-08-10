@@ -1,24 +1,29 @@
 using System;
-using UnityEngine;
+using UnityEngine;using Zenject;
 
-public class MobileInput : MonoBehaviour, IInput
+public class MobileInput : IInput, ITickable
 {
-    public Action OnJump { get; set; }
+    public Action<ActionType> OnAction { get; set; }
 
     private bool isTouchBegan = false;
-    private void Update()
+
+    public void Tick()
     {
         if (Input.touchCount > 0)
         {
             if (!isTouchBegan)
             {
                 isTouchBegan = true;
-                OnJump?.Invoke();
+                OnAction?.Invoke(ActionType.Jump);
             }
         }
         else if (isTouchBegan)
         {
+            OnAction?.Invoke(ActionType.Attack);
             isTouchBegan = false;
         }
     }
+
+
+
 }

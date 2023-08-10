@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1598084021
+    locked: 0
+  - name: BGEffects
+    uniqueID: 2430629253
+    locked: 0
+  - name: Plates
+    uniqueID: 4110021353
+    locked: 0
+  - name: PlateElements
+    uniqueID: 1168173895
+    locked: 0
+  - name: Enemy
+    uniqueID: 1522172511
+    locked: 0
+  - name: Player
+    uniqueID: 3482234203
+    locked: 0
+  - name: UI
+    uniqueID: 3435634067
+    locked: 0
