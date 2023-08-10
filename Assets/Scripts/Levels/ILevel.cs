@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using Events;
 using UnityEngine;
 
 public interface ILevel : IDisposable
@@ -10,4 +11,5 @@ public interface ILevel : IDisposable
    Transform Transform { get; }
    Vector3 PlayerSpawnPoint { get; }
    List<KeyValuePair<string, Vector3>> EnemySpawnPoints { get; }
+   void Init(GameEvents gameEvents);
 }

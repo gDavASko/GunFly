@@ -16,10 +16,17 @@ public class SystemDontDestroyInitialization : MonoInstaller
          .AsSingle()
          .WithArguments(new AddressableAssetGetter());
 
+
+      var noneCacahbleGetter = new AddressableNonCachedAssetGetter();
       Container.Bind<IUnitsFactory>()
          .To<UnitsFactory>()
          .AsSingle()
-         .WithArguments(new AddressableNonCachedAssetGetter());
+         .WithArguments(noneCacahbleGetter);
+
+      Container.Bind<IWeaponFactory>()
+         .To<WeaponFactory>()
+         .AsSingle()
+         .WithArguments(noneCacahbleGetter);
 
       Container.Bind<GameEvents>().AsSingle();
    }

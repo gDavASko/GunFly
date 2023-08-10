@@ -1,7 +1,16 @@
+using System;
 using UnityEngine;
 
-public class UnitAttacker : MonoBehaviour, IAttackController
+[RequireComponent(typeof(IWeaponProcessor))]
+public class UnitAttacker : Unit, IAttackController
 {
+    private IWeaponProcessor _weaponProcessor = null;
+
+    private void Awake()
+    {
+        _weaponProcessor = GetComponent<IWeaponProcessor>();
+    }
+
     public void Init(IInput input)
     {
         input.OnAction += OnAttack;
@@ -15,6 +24,7 @@ public class UnitAttacker : MonoBehaviour, IAttackController
 
     public void Attack()
     {
-        Debug.LogError($"{name} Attack!!!");
+        if (_weaponProcessor != null)
+            _weaponProcessor.UseWeapon();
     }
 }
