@@ -81,9 +81,10 @@ public class WeaponDamageTriggerBase : MonoBehaviour
     {
         if (_stayColllision.Count > 0)
         {
-            foreach (var target in _stayColllision)
+            for(int i = 0; i < _stayColllision.Count; ++i)
             {
-                ProcessDamage(target);
+                if(_stayColllision.Count > i && _stayColllision[i] != null)
+                ProcessDamage(_stayColllision[i]);
             }
         }
     }

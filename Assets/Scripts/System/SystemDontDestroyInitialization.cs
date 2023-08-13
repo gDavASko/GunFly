@@ -1,16 +1,35 @@
 using Events;
-using UnityEngine;
+using Saves;
 using Zenject;
 
 public class SystemDontDestroyInitialization : MonoInstaller
 {
    public override void InstallBindings()
    {
-     /* #if UNITY_ANDROID
-      Container.Bind(typeof(IInput), typeof(ITickable)).To<MobileInput>().AsSingle();
-      #else*/
-      Container.Bind(typeof(IInput), typeof(ITickable)).To<PCInput>().AsSingle();
+      Container.Bind<GameEvents>().AsSingle();
+      Container.Bind<UnitEvents>().AsSingle();
+
+      /* #if UNITY_ANDROID
+       Container.Bind(typeof(IInput), typeof(ITickable))
+       .To<MobileInput>()
+       .AsSingle()
+       .NonLazy();
+       #else*/
+      Container.Bind(typeof(IInput), typeof(ITickable))
+         .To<PCInput>()
+         .AsSingle()
+         .NonLazy();
       /*#endif*/
+
+      Container.Bind<IStorableParams>()
+         .To<JSONSaves>()
+         .AsSingle()
+         .NonLazy();
+
+      Container.Bind<IStatisticProcessor>()
+         .To<StatisticProcessor>()
+         .AsSingle()
+         .NonLazy();
 
       Container.Bind<IWeaponInitConfigAccessor>()
          .To<WeaponInitConfigsAccessorSO>()
@@ -27,18 +46,20 @@ public class SystemDontDestroyInitialization : MonoInstaller
          .AsSingle()
          .WithArguments(new AddressableAssetGetter());
 
+      Container.Bind<IGettableAsset>()
+         .To<AddressableNonCachedAssetGetter>()
+         .AsSingle();
 
-      var noneCacahbleGetter = new AddressableNonCachedAssetGetter();
       Container.Bind<IUnitsFactory>()
          .To<UnitsFactory>()
-         .AsSingle()
-         .WithArguments(noneCacahbleGetter);
+         .AsSingle();
 
       Container.Bind<IWeaponFactory>()
          .To<WeaponFactory>()
-         .AsSingle()
-         .WithArguments(noneCacahbleGetter);
+         .AsSingle();
 
-      Container.Bind<GameEvents>().AsSingle();
+      Container.Bind<IUIFactory>()
+         .To<UIFactory>()
+         .AsSingle().NonLazy();
    }
 }

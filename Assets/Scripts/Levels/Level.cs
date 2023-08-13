@@ -46,7 +46,7 @@ public class Level : MonoBehaviour, ILevel
 
     private void FinishLevel()
     {
-        _gameEvents.OnGameFinish?.Invoke();
+        _gameEvents.OnGameFinish?.Invoke(GameEvents.GameResult.Victory);
     }
 
     public void Dispose()

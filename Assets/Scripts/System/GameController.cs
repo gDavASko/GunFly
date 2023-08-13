@@ -105,10 +105,10 @@ public sealed class GameController : MonoBehaviour
     private void OnPlayerDeath()
     {
         Debug.LogError("Player Death");
-        LoadGame();
+        _gameEvents.OnGameFinish?.Invoke(GameEvents.GameResult.Death);
     }
 
-    private void OnGameFinish()
+    private void OnGameFinish(GameEvents.GameResult result)
     {
         Debug.LogError("Game Finish");
         LoadGame();

@@ -12,12 +12,12 @@ namespace GunFly.UI
         [SerializeField] private CanvasGroup _canvasGroup = null;
         [SerializeField] private TextMeshProUGUI _loadingPercentage = null;
 
-        private System.Action OnLevelLoaded = null;
+        private GameEvents _gameEvents = null;
 
         [Inject]
-        public void Construct(GameEvents onLevelLoaded)
+        public void Construct(GameEvents gameEvents)
         {
-            OnLevelLoaded = onLevelLoaded.OnGameLoaded;
+            _gameEvents = gameEvents;
         }
 
         private void Start()
@@ -39,9 +39,7 @@ namespace GunFly.UI
                 yield return null;
             }
 
-            gameObject.SetActive(false);
-
-            OnLevelLoaded?.Invoke();
+            _gameEvents.OnGameLoaded?.Invoke();
         }
     }
 }
