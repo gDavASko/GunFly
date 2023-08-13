@@ -156,8 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87229a83594914db4caa0a2903aa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTags:
-  - Enemy
+  _checkStayState: 1
 --- !u!1 &9123764399581844741
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,5 +202,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60757cbc0e0cc1a458dfde2a075bd105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damageId: Weapon_sword
   _rotator: {fileID: 6202484752515538238}

@@ -63,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3171218577486181240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276c50498829f57479b2d755626458ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableOnDeath: 1
 --- !u!114 &-8406528345678875069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponSlot: {fileID: 7971831947688496887}
+  _inverseX: 0
 --- !u!61 &6239131547087532886
 BoxCollider2D:
   m_ObjectHideFlags: 0

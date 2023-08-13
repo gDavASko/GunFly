@@ -1,6 +1,7 @@
 
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public interface IAssetGetter : IGettableAsset, IUnloadableAsset
 {
@@ -15,4 +16,9 @@ public interface IUnloadableAsset
 public interface IGettableAsset
 {
     Task<T> LoadResource<T>(string assetId);
+}
+
+public interface IAsyncGettableAsset<T>
+{
+    void LoadResource(string assetId, System.Action<T> loadCompleteCallback);
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitAttacker : Unit, IAttackController
 {
     private IWeaponProcessor _weaponProcessor = null;
+    private IInput _input;
 
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class UnitAttacker : Unit, IAttackController
 
     public void Init(IInput input)
     {
+        _input = input;
         input.OnAction += OnAttack;
     }
 
@@ -26,5 +28,11 @@ public class UnitAttacker : Unit, IAttackController
     {
         if (_weaponProcessor != null)
             _weaponProcessor.UseWeapon();
+    }
+
+    public override void Dispose()
+    {
+        _input.OnAction -= OnAttack;
+        base.Dispose();
     }
 }

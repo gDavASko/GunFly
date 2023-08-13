@@ -1,4 +1,5 @@
 using Events;
+using UnityEngine;
 using Zenject;
 
 public class SystemDontDestroyInitialization : MonoInstaller
@@ -10,6 +11,16 @@ public class SystemDontDestroyInitialization : MonoInstaller
       #else*/
       Container.Bind(typeof(IInput), typeof(ITickable)).To<PCInput>().AsSingle();
       /*#endif*/
+
+      Container.Bind<IWeaponInitConfigAccessor>()
+         .To<WeaponInitConfigsAccessorSO>()
+         .AsSingle()
+         .NonLazy();
+
+      Container.Bind<IDamageConfigAccessor>()
+         .To<DamageConfigAccessorSO>()
+         .AsSingle()
+         .NonLazy();
 
       Container.Bind<ILevelFactory>()
          .To<LevelFactory>()

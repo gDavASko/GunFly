@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour, IWeapon
 {
-    [SerializeField] protected float _damage = 0;
+    [SerializeField] protected string _damageId = "damage";
 
+    protected IDamageConfig _damageConfig = null;
     protected GameObject _owner = null;
+    protected string _targetTag = string.Empty;
+
+    public string DamageId => _damageId;
 
     public abstract void Attack();
 
-    public virtual void Init(IInput input, GameObject owner)
+    public virtual void Init(GameObject owner, IDamageConfig damageConfig, string targetTag)
     {
-        input.OnAction += OnAttack;
         _owner = owner;
+        _damageConfig = damageConfig;
+        _targetTag = targetTag;
     }
 
     private void OnAttack(ActionType action)
@@ -22,8 +25,5 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
             Attack();
     }
 
-    public virtual void Dispose()
-    {
-        Destroy(this.gameObject);
-    }
+    public abstract void Dispose();
 }

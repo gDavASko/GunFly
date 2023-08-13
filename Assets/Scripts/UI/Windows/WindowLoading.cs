@@ -29,7 +29,7 @@ namespace GunFly.UI
         {
             for (float i = 0; i <= 1; i += 0.01f)
             {
-                _loadingPercentage.text = $"{i * 100f}%";
+                _loadingPercentage.text = $"{(i * 100f).Round(0)}%";
                 yield return null;
             }
 

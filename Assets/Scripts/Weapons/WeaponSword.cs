@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -7,47 +8,60 @@ public class WeaponSword : WeaponBase
 {
     [SerializeField] private Transform _rotator = null;
 
-    private IWeaponTrigger _wepTrigger = null;
+    private IWeaponDamageTrigger _wepDamageTrigger = null;
+    private WaitForEndOfFrame _waiter = null;
+    private Coroutine _attackPlay = null;
+    private Vector3 _initWeaponPos = default;
 
-    private void Awake()
+    public override void Init(GameObject owner, IDamageConfig damageConfig, string targetTag)
     {
-        _wepTrigger = GetComponentInChildren<IWeaponTrigger>();
-        _wepTrigger.OnTriggeredTarget += ProccesTrigger;
-    }
+        base.Init(owner, damageConfig, targetTag);
 
-    private void ProccesTrigger(IDamagableTarget target)
-    {
-        target.DealDamage(_damage);
+        _wepDamageTrigger = GetComponentInChildren<IWeaponDamageTrigger>();
+        _wepDamageTrigger.Init(damageConfig, owner, targetTag);
+        _waiter = new WaitForEndOfFrame();
+        _initWeaponPos = _rotator.eulerAngles;
     }
 
     public override void Attack()
     {
-        ProcessAttack().Forget();
-    }
-
-    private async UniTaskVoid ProcessAttack()
-    {
-        if (_rotator == null)
+        if (!gameObject.activeSelf || !gameObject.activeInHierarchy)
             return;
 
-        Vector3 rotationTarget = _rotator.eulerAngles;
-        rotationTarget.z -= 359;
-        Vector3 rotationInit = _rotator.eulerAngles;
+        if (_attackPlay != null)
+            StopCoroutine(_attackPlay);
 
-        _wepTrigger.CanUse = true;
+        _attackPlay = StartCoroutine(ProcessAttack());
+    }
+
+    private IEnumerator ProcessAttack()
+    {
+        if (_rotator == null)
+            yield break;
+
+        Vector3 rotationTarget = _initWeaponPos;
+        rotationTarget.z -= 359;
+        Vector3 rotationInit = _initWeaponPos;
+
+        _wepDamageTrigger.IsActivated = true;
 
         for (float i = 0; i < 1; i += 0.01f)
         {
             _rotator.rotation = Quaternion.Euler(Vector3.Lerp(rotationInit, rotationTarget, i));
-            await UniTask.WaitForEndOfFrame();
+            yield return _waiter;
         }
 
-        _wepTrigger.CanUse = false;
+        _wepDamageTrigger.IsActivated = false;
     }
 
     public override void Dispose()
     {
-        _wepTrigger.Dispose();
-        base.Dispose();
+        _wepDamageTrigger.Dispose();
+    }
+
+    private void OnDestroy()
+    {
+        if (_attackPlay != null)
+            StopCoroutine(_attackPlay);
     }
 }

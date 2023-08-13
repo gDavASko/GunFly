@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IWeapon: IDisposable
 {
+    string DamageId { get; }
     Transform transform { get; }
-    void Init(IInput input, GameObject owner);
+    void Init(GameObject owner, IDamageConfig damageConfig, string targetTag);
     void Attack();
 }

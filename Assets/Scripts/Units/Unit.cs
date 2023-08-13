@@ -7,6 +7,7 @@ public abstract class Unit : MonoBehaviour, IUnit
     [SerializeField] private bool disableOnDeath = true;
     protected IHitPointSystem _hpSystem = null;
 
+    public Transform Transform => transform;
     public Action OnDeath { get; set; }
 
     public virtual void Init(Vector3 pos, Quaternion rotation, Transform parent)
