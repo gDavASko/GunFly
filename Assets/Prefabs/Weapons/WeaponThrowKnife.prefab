@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 450819269892168838}
   - component: {fileID: 2124104720413942668}
   - component: {fileID: 3503358430042694644}
+  - component: {fileID: 606257446061687245}
   m_Layer: 0
   m_Name: WeaponThrowKnife
   m_TagString: Untagged
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwableObjectId: Weapon_throwing_knife_object
+  _spawnCoolDownMiliseconds: 500
 --- !u!114 &3503358430042694644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +146,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageId: Weapon_throwing_knife
+--- !u!114 &606257446061687245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123764399581844741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundId: Throw
+  _loop: 0
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}

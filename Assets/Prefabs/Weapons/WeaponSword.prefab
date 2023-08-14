@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9152881355335943591}
   - component: {fileID: 4494991947506799253}
   - component: {fileID: 5828709197620010826}
+  - component: {fileID: 8353570174880595599}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -161,6 +162,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkStayState: 1
+--- !u!114 &8353570174880595599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314061570805318055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundId: Throw
+  _loop: 0
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
 --- !u!1 &9123764399581844741
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 450819269892168838}
   - component: {fileID: 5276448594792940629}
+  - component: {fileID: 8940324243596264706}
   m_Layer: 0
   m_Name: WeaponSword
   m_TagString: Untagged
@@ -208,3 +225,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageId: Weapon_sword
   _rotator: {fileID: 6202484752515538238}
+--- !u!114 &8940324243596264706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123764399581844741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundId: SwordAttack
+  _loop: 0
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}

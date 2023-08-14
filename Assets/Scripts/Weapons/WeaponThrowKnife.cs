@@ -18,6 +18,8 @@ public class WeaponThrowKnife : WeaponBase
 
     public override void Attack()
     {
+        base.Attack();
+
         if (!gameObject.activeSelf || !gameObject.activeInHierarchy)
             return;
 

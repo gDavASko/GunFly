@@ -33,7 +33,25 @@ public sealed class GameController : MonoBehaviour
 
         _gameEvents = gameEvents;
         gameEvents.OnGameLoaded += OnLevelLoaded;
+        gameEvents.OnGameStart += OnGameStart;
         gameEvents.OnGameFinish += OnGameFinish;
+        gameEvents.OnNextGame += OnNextGame;
+        gameEvents.OnRestartGame += OnRestartGame;
+    }
+
+    private void OnRestartGame()
+    {
+        LoadGame();
+    }
+
+    private void OnNextGame()
+    {
+        LoadGame();
+    }
+
+    private void OnGameStart()
+    {
+        InitPlayer();
     }
 
     private void OnLevelLoaded()
@@ -50,7 +68,6 @@ public sealed class GameController : MonoBehaviour
         _currentLevel = await _levelFactory.CreateLevel<ILevel>("Level_0");
         _currentLevel.Init(_gameEvents);
 
-        InitPlayer();
         InitEnemy();
     }
 
@@ -104,13 +121,11 @@ public sealed class GameController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        Debug.LogError("Player Death");
         _gameEvents.OnGameFinish?.Invoke(GameEvents.GameResult.Death);
     }
 
     private void OnGameFinish(GameEvents.GameResult result)
     {
-        Debug.LogError("Game Finish");
         LoadGame();
     }
 }

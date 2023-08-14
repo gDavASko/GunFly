@@ -26,6 +26,14 @@ public class StatisticProcessor : IStatisticProcessor, IDisposable
 
         _gameEvents = gameEvents;
         _gameEvents.OnGameFinish += OnGameFinish;
+        _gameEvents.OnGameStart += OnGameStart;
+
+        _intStats.SetValue(SaveKey.Scores, 0);
+    }
+
+    private void OnGameStart()
+    {
+        _intStats.SetValue(SaveKey.Scores, 0);
     }
 
     public void Load()
@@ -46,7 +54,7 @@ public class StatisticProcessor : IStatisticProcessor, IDisposable
         }
         else
         {
-            _intStats.SetValue(SaveKey.Credits, _intStats.GetValue(SaveKey.Credits, 0) + 1);
+            _intStats.SetValue(SaveKey.Scores, _intStats.GetValue(SaveKey.Scores, 0) + 1);
         }
     }
 
@@ -56,6 +64,12 @@ public class StatisticProcessor : IStatisticProcessor, IDisposable
 
         if(result == GameEvents.GameResult.Victory)
             _intStats.SetValue(SaveKey.Victories, _intStats.GetValue(SaveKey.Victories, 0) + 1);
+
+        _intStats.SetValue(SaveKey.LevelNumber, _intStats.GetValue(SaveKey.LevelNumber, 0) + 1);
+
+        var score = _intStats.GetValue(SaveKey.Scores, 0);
+        if(score > _intStats.GetValue(SaveKey.BestScores, 0))
+            _intStats.SetValue(SaveKey.BestScores, score);
     }
 
     private void OnWeaponChange(string unitId, string weaponId)
@@ -68,6 +82,9 @@ public class StatisticProcessor : IStatisticProcessor, IDisposable
     public void Dispose()
     {
         _unitEvents.OnUnitDeath -= OnUnitDeath;
+        _unitEvents.OnUnitWeaponChange -= OnWeaponChange;
+
         _gameEvents.OnGameFinish -= OnGameFinish;
+        _gameEvents.OnGameStart -= OnGameStart;
     }
 }

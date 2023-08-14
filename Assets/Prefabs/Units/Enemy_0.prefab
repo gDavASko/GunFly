@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: -4266420686432442139}
   - component: {fileID: 4589043524369020171}
   - component: {fileID: 8739181190102273179}
+  - component: {fileID: -5729681772001206508}
   m_Layer: 0
   m_Name: Enemy_0
   m_TagString: Enemy
@@ -136,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86382b90af7651e47bbfd30d7e1df7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 
+  disableOnDeath: 1
 --- !u!114 &3105366836808146445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +257,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4190647, y: 0.88475376}
   m_EdgeRadius: 0
+--- !u!114 &-5729681772001206508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828762491495915394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundId: Jump3
+  _loop: 0
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}

@@ -18,7 +18,23 @@ MonoBehaviour:
   m_GUID: bbe2fd186f8d06642a7f1cb9c363fbac
   m_SerializeEntries:
   - m_GUID: cfa1cfde2ea73bb4daaf1da5087e7ed3
-    m_Address: StatisticDrawer
+    m_Address: WindowBattle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f1b9a4d2ffa5bc64bad0eb2d0fb08f76
+    m_Address: WindowMainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5fcdb51e2489bba4a966bdae5fafa90d
+    m_Address: WindowLoading
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 48b2b468837406f468a6c43e64c81cc5
+    m_Address: WindowResult
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 884ea38da44691945be7a696e9552d77
+    m_Address: WindowFail
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

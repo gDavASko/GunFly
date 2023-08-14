@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  m_GroupName: Sounds
+  m_Data:
+    m_SerializedData: []
+  m_GUID: efeb1f21f362ad34b83ae8adae9425b7
+  m_SerializeEntries:
+  - m_GUID: 32d4b1811dda14a6cb9e059ee8ad17d2
+    m_Address: LightTap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2c5292ba5cf254919a6b9e2b18e04f49
+    m_Address: Jump
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 724131bc8a7f34041bb9f1701f0cb58d
+    m_Address: SwitchElement
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2667a0a008b044e218b63df62e2be749
+    m_Address: Win
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6e8772b49f34d402a90016ed445d8a2f
+    m_Address: Throw
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 80e397195ea2940b69ee7bdbded856a5
+    m_Address: ThrowCling
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cf6c0e7fbef9449c98a0cdb5ea0c4d9f
+    m_Address: Jump2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 29bde6326b4c34ad8a12da475f79b50a
+    m_Address: Jump3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3becec1909f194046945d85ac1077772
+    m_Address: Throw2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7e9ee6dc04a5d40d1a5dfc4beb9865e7
+    m_Address: Jump4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 52320e590bf774734a288886eba557ba
+    m_Address: Start
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fe0b1f9aeb45b41b089175aeeabd5d95
+    m_Address: SwordAttack
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d46323e22e74e46baa241cbf48c85671
+    m_Address: SwordAttack2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 79e6baad2fd414b82a6d49ce1568d2e5
+    m_Address: Lose
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 23295e53cd7cf16499326111c565e052, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4d4899641e1ae6e4094bdade8a979e0e, type: 2}
+    - {fileID: 11400000, guid: 050a4dd9023a0bd4b9413700ef427942, type: 2}

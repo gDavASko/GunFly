@@ -5,5 +5,6 @@ public interface IUIElement
     string Id { get; }
     RectTransform RectTransform { get; }
 
-    void Init(params object[] parameters);
+    void ShowWithParams(params object[] parameters);
+    void Hide(bool force);
 }

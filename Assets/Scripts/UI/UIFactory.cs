@@ -16,7 +16,7 @@ public class UIFactory : IUIFactory
     private async Task<T> CreateUIElement<T>(string id) where T : class, IUIElement
     {
         T element = await _assetGetter.LoadResource<T>(id);
-        _cachedElements[element.Id] = element;
+        _cachedElements[id] = element;
 
         return element as T;
     }

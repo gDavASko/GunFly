@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 3267039901757603473}
   - component: {fileID: 6239131547087532886}
   - component: {fileID: 7728194548326133995}
+  - component: {fileID: 8136156086114095727}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276c50498829f57479b2d755626458ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 
   disableOnDeath: 1
 --- !u!114 &-8406528345678875069
 MonoBehaviour:
@@ -203,6 +205,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8136156086114095727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171218577486181240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundId: Jump4
+  _loop: 0
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
 --- !u!1 &3877515935203645026
 GameObject:
   m_ObjectHideFlags: 0

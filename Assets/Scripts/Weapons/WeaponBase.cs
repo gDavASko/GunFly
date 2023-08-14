@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour, IWeapon
@@ -8,9 +9,20 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     protected GameObject _owner = null;
     protected string _targetTag = string.Empty;
 
+    //ToDo: move audio to audio event system
+    protected IAudioPlayer _audioPlayer = null;
+
     public string DamageId => _damageId;
 
-    public abstract void Attack();
+    private void Start()
+    {
+        _audioPlayer = GetComponent<IAudioPlayer>();
+    }
+
+    public virtual void Attack()
+    {
+        _audioPlayer?.PlaySound();
+    }
 
     public virtual void Init(GameObject owner, IDamageConfig damageConfig, string targetTag)
     {
@@ -22,7 +34,9 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
     private void OnAttack(ActionType action)
     {
         if (action == ActionType.Attack)
+        {
             Attack();
+        }
     }
 
     public abstract void Dispose();

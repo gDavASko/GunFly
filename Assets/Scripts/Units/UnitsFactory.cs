@@ -23,6 +23,8 @@ public class UnitsFactory : IUnitsFactory
 
         unit.Init(position, rotation, parent, _unitEvents);
 
+        _unitEvents.OnUnitCreated?.Invoke(unit);
+
         if(cacheIt)
             _cachedUnits.Add(unit);
 

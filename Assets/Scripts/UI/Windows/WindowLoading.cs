@@ -7,20 +7,16 @@ using Zenject;
 
 namespace GunFly.UI
 {
-    public class WindowLoading : MonoBehaviour
+    public class WindowLoading : UIElementBase
     {
         [SerializeField] private CanvasGroup _canvasGroup = null;
         [SerializeField] private TextMeshProUGUI _loadingPercentage = null;
 
         private GameEvents _gameEvents = null;
 
-        [Inject]
-        public void Construct(GameEvents gameEvents)
-        {
-            _gameEvents = gameEvents;
-        }
+        public override string Id => "WindowLoading";
 
-        private void Start()
+        private void StartWindow()
         {
             StartCoroutine(LoadGamePlay());
         }
@@ -40,6 +36,13 @@ namespace GunFly.UI
             }
 
             _gameEvents.OnGameLoaded?.Invoke();
+        }
+
+        public override void ShowWithParams(params object[] parameters)
+        {
+            _gameEvents = parameters.Get<GameEvents>();
+            base.ShowWithParams(parameters);
+            StartWindow();
         }
     }
 }
