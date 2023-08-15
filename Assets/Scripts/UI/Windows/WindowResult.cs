@@ -10,6 +10,7 @@ public class WindowResult : UIElementBase
     [SerializeField] private TextMeshProUGUI _textLevelScore = null;
     [SerializeField] private TextMeshProUGUI _textBestScore = null;
     [SerializeField] private Button _buttonContinue = null;
+    [SerializeField] private Button _buttonToMenu = null;
 
     private IStorableParams _storableParams = null;
     private GameEvents _gameEvents = null;
@@ -22,6 +23,7 @@ public class WindowResult : UIElementBase
         base.Awake();
         _animator = GetComponent<IUIElementAnimator>();
         _buttonContinue.onClick.AddListener(OnContinueClick);
+        _buttonToMenu.onClick.AddListener(OnToMenuClick);
     }
 
     public override void ShowWithParams(params object[] parameters)
@@ -55,5 +57,10 @@ public class WindowResult : UIElementBase
         {
             _gameEvents.OnRestartGame?.Invoke();
         }
+    }
+
+    private void OnToMenuClick()
+    {
+        _gameEvents.OnToMainMenu?.Invoke();
     }
 }

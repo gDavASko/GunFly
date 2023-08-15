@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour, ICameraController
 
         _gameEvents = gameEvents;
         _gameEvents.OnGameStart += OnGameStart;
-        _gameEvents.OnGameFinish += OnGAmeFinish;
+        _gameEvents.OnGameFinish += OnGameFinish;
     }
 
     private void LateUpdate()
@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour, ICameraController
         }
     }
 
-    private void OnGAmeFinish(GameEvents.GameResult obj)
+    private void OnGameFinish(GameEvents.GameResult obj)
     {
         _isActiveCamera = false;
     }
@@ -65,7 +65,7 @@ public class CameraController : MonoBehaviour, ICameraController
         _unitEvents = null;
 
         _gameEvents.OnGameStart -= OnGameStart;
-        _gameEvents.OnGameFinish -= OnGAmeFinish;
+        _gameEvents.OnGameFinish -= OnGameFinish;
         _gameEvents = null;
     }
 }

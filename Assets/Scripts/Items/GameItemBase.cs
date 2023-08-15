@@ -37,7 +37,7 @@ public abstract class GameItemBase : MonoBehaviour, IGameItem
             //ToDo: Remake hardcode to switch variant
             _audioPlayer?.PlaySound(_soundGetItem);
 
-            if(_itemEvents.OnItemPlayerCollision != null)
+            if(_itemEvents != null && _itemEvents.OnItemPlayerCollision != null)
                 _itemEvents.OnItemPlayerCollision(this);
 
             Hide();

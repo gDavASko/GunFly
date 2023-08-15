@@ -30,7 +30,8 @@ public class UIController : MonoBehaviour
         _gameEvents.OnGameLoaded += OnGameLoaded;
         _gameEvents.OnGameFinish += OnGameFinish;
         _gameEvents.OnNextGame += OnGameLoaded;
-        _gameEvents.OnRestartGame += OnGameLoaded;
+        _gameEvents.OnRestartGame += OnStartForce;
+        _gameEvents.OnToMainMenu += OnGameLoaded;
 
         _unitEvents = unitEvents;
         _unitEvents.OnUnitCreated += OnUnitCreated;
@@ -39,6 +40,12 @@ public class UIController : MonoBehaviour
 
         _lastWindow = _windowLoading.GetComponent<IUIElement>();
         _lastWindow.ShowWithParams(_gameEvents);
+    }
+
+    private void OnStartForce()
+    {
+        OnGameLoaded();
+        _gameEvents.OnGameStart();
     }
 
     private void OnUnitCreated(IUnit unit)

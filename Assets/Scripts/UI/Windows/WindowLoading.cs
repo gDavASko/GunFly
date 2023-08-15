@@ -3,13 +3,11 @@ using System.Collections;
 using Events;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace GunFly.UI
 {
     public class WindowLoading : UIElementBase
     {
-        [SerializeField] private CanvasGroup _canvasGroup = null;
         [SerializeField] private TextMeshProUGUI _loadingPercentage = null;
 
         private GameEvents _gameEvents = null;

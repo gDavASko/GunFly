@@ -20,6 +20,4 @@ public class PCInput : IInput, ITickable
             OnAction?.Invoke(ActionType.Attack);
         }
     }
-
-
 }

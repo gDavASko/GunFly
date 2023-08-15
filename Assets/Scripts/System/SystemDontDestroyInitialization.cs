@@ -15,17 +15,10 @@ public class SystemDontDestroyInitialization : MonoInstaller
          .AsSingle()
          .NonLazy();
 
-      /* #if UNITY_ANDROID
-       Container.Bind(typeof(IInput), typeof(ITickable))
-       .To<MobileInput>()
-       .AsSingle()
-       .NonLazy();
-       #else*/
       Container.Bind(typeof(IInput), typeof(ITickable))
          .To<PCInput>()
          .AsSingle()
          .NonLazy();
-      /*#endif*/
 
       Container.Bind<IStorableParams>()
          .To<JSONSaves>()
