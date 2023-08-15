@@ -591,6 +591,7 @@ MonoBehaviour:
   - Level_3
   - Level_4
   - Level_5
+  _cycledFrom: 4
 --- !u!4 &1316492728
 Transform:
   m_ObjectHideFlags: 0

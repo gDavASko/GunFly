@@ -67,9 +67,18 @@ public class LevelController : MonoBehaviour, ILevelController
         InitItems();
     }
 
+    public int CyclicIndex(int curNumber)
+    {
+        if (curNumber > _levelsOrderedIds.Length - 1)
+        {
+            curNumber = _cycledFrom + (int)((curNumber - _cycledFrom) % (_levelsOrderedIds.Length - _cycledFrom));
+        }
+        return curNumber;
+    }
+
     private string GetLevelId(int levelNumber)
     {
-        int index = levelNumber % _levelsOrderedIds.Length;
+        int index = CyclicIndex(levelNumber);
 
         return _levelsOrderedIds[index];
     }

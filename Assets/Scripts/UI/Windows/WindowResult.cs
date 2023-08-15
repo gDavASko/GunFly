@@ -36,7 +36,7 @@ public class WindowResult : UIElementBase
 
     private void UpdateValues()
     {
-        string textCaption = $"{(_storableParams.Get(SaveKey.LevelNumber, 0).ToString() + 1)} Level " +
+        string textCaption = $"{(_storableParams.Get(SaveKey.LevelNumber, 0) + 1).ToString() } Level " +
                              $"{(_gameResult == GameEvents.GameResult.Victory ? "Complete!" : "Lose!")}";
 
         _textLevelComplete.text = textCaption;
