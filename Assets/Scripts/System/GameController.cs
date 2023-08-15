@@ -32,11 +32,17 @@ public sealed class GameController : MonoBehaviour
         _weaponInitConfigAccessor = weaponInitConfigAccessor;
 
         _gameEvents = gameEvents;
-        gameEvents.OnGameLoaded += OnLevelLoaded;
-        gameEvents.OnGameStart += OnGameStart;
         gameEvents.OnGameFinish += OnGameFinish;
+        gameEvents.OnGameStart += OnGameStart;
         gameEvents.OnNextGame += OnNextGame;
         gameEvents.OnRestartGame += OnRestartGame;
+
+        LoadGame();
+    }
+
+    private void OnGameFinish(GameEvents.GameResult result)
+    {
+        _player.Transform.gameObject.SetActive(false);
     }
 
     private void OnRestartGame()
@@ -53,12 +59,6 @@ public sealed class GameController : MonoBehaviour
     {
         InitPlayer();
     }
-
-    private void OnLevelLoaded()
-    {
-        LoadGame();
-    }
-
 
     private async void LoadGame()
     {
@@ -122,10 +122,5 @@ public sealed class GameController : MonoBehaviour
     private void OnPlayerDeath()
     {
         _gameEvents.OnGameFinish?.Invoke(GameEvents.GameResult.Death);
-    }
-
-    private void OnGameFinish(GameEvents.GameResult result)
-    {
-        LoadGame();
     }
 }

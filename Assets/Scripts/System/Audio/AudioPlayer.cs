@@ -8,8 +8,8 @@ using UnityEngine.Audio;
 public class AudioPlayer : MonoBehaviour, IAudioPlayer
 {
     [SerializeField] private string _soundId = default;
-    [SerializeField] private bool _loop = false;
     [SerializeField] private AudioMixer _mixer = null;
+    [SerializeField] private string _goSoundId = "SoundInstance";
 
     private AudioClip _clip = null;
     private GameObject _audioObject = null;
@@ -17,23 +17,37 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
     public void Start()
     {
         var getter = new AddressableAsyncAssetGetter<AudioClip>();
-        getter.LoadResource(_soundId, (AudioClip res) =>
-        {
-            _clip = res;
-            _audioObject = new GameObject();
-            _audioObject.name = $"{nameof(AudioPlayer)}.{gameObject.name}.{_clip.name}";
-            var _audio = _audioObject.AddComponent<AudioSource>();
-            _audio.clip = _clip;
-            _audio.loop = _loop;
-            _audio.outputAudioMixerGroup = _mixer.outputAudioMixerGroup;
-            _audio.playOnAwake = true;
-        });
+        getter.LoadResource(_soundId, CompleteLoadAudioClip);
+    }
+
+    private void CompleteLoadAudioClip(AudioClip res)
+    {
+        _clip = res;
+        var getter = new AddressableAsyncAssetGetter<GameObject>();
+        getter.LoadResource(_goSoundId, CompleteLoadAudioInstance);
+    }
+
+    void CompleteLoadAudioInstance(GameObject audioObject)
+    {
+        audioObject.name = $"{nameof(AudioPlayer)}.{gameObject.name}.{_clip.name}";
+        var _audio = audioObject.GetComponent<AudioSource>();
+        _audio.outputAudioMixerGroup = _mixer.outputAudioMixerGroup;
+        _audioObject = audioObject;
     }
 
     public void PlaySound()
     {
-        var go = Instantiate(_audioObject);
-        DestroyAfterSound(go).Forget();
+        if (_audioObject == null)
+        {
+            Debug.LogError($"[{nameof(AudioPlayer)}] Don't loaded audio object with id {_soundId}");
+            return;
+        }
+
+        var audio = Instantiate(_audioObject).GetComponent<AudioSource>();
+        audio.clip = _clip;
+        audio.Play();
+
+        DestroyAfterSound(audio.gameObject).Forget();
     }
 
     private async UniTaskVoid DestroyAfterSound(GameObject soundGO)
