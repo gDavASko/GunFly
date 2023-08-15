@@ -13,6 +13,9 @@ public class WeaponProcessorBase : MonoBehaviour, IWeaponProcessor
 
     public void SetWeapon(IWeapon weapon)
     {
+        if(CurWeapon != null)
+            CurWeapon.Dispose();
+
         CurWeapon = weapon;
         CurWeapon.transform.SetParent(_weaponSlot);
         CurWeapon.transform.localPosition = Vector3.zero;

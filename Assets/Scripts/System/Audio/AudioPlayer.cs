@@ -29,6 +29,9 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
 
     void CompleteLoadAudioInstance(GameObject audioObject)
     {
+        if (this == null || gameObject == null || audioObject == null)
+            return;
+
         audioObject.name = $"{nameof(AudioPlayer)}.{gameObject.name}.{_clip.name}";
         var _audio = audioObject.GetComponent<AudioSource>();
         _audio.outputAudioMixerGroup = _mixer.outputAudioMixerGroup;

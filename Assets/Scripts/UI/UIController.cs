@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
 
     private void OnUnitCreated(IUnit unit)
     {
-        if (unit.Transform.tag == "Player")
+        if (unit.Transform.CompareTag(GameController.PLAYER_ID))
         {
             _player = unit;
             OnGameStart();
@@ -83,9 +83,7 @@ public class UIController : MonoBehaviour
         var window = await _uiFactory.GetUIElement<IUIElement>(windowId);
         if (window.RectTransform.parent == null)
         {
-            //var iniPos = window.RectTransform.anchoredPosition;
             window.RectTransform.SetParent(_rootElements);
-            //window.RectTransform.anchoredPosition = iniPos;
             window.RectTransform.sizeDelta = Vector2.zero;
             window.RectTransform.localPosition = Vector2.zero;
         }

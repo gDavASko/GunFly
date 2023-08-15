@@ -1,7 +1,5 @@
 using UnityEngine;
 
-public class UnitMarker : MonoBehaviour
+public class UnitMarker : LevelMarker
 {
-    [SerializeField] private string _id = "enemy";
-    public string Id => _id;
 }

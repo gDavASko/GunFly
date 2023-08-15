@@ -11,5 +11,6 @@ public interface ILevel : IDisposable
    Transform Transform { get; }
    Vector3 PlayerSpawnPoint { get; }
    List<KeyValuePair<string, Vector3>> EnemySpawnPoints { get; }
+   List<KeyValuePair<string, Vector3>> ItemsSpawnPoints { get; }
    void Init(GameEvents gameEvents);
 }

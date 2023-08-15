@@ -59,6 +59,7 @@ public class WeaponSword : WeaponBase
     public override void Dispose()
     {
         _wepDamageTrigger.Dispose();
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

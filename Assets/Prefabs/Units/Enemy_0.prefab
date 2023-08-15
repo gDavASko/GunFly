@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad3978b7135d6248a636bd506d6538a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHitpoints: 10
+  _maxHitpoints: 20
 --- !u!114 &-1194173202675261066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,5 +270,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundId: Jump3
-  _loop: 0
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance

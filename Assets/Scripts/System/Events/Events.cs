@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 namespace Events
 {
     public class GameEvents
@@ -21,5 +23,10 @@ namespace Events
         public System.Action<IUnitDeathContext> OnUnitDeath {get; set; }
         public System.Action<IUnit> OnUnitCreated { get; set; }
         public System.Action<string, string> OnUnitWeaponChange { get; set; }
+    }
+
+    public class ItemEvents
+    {
+        public System.Action<IGameItem> OnItemPlayerCollision { get; set; }
     }
 }

@@ -12,6 +12,7 @@ public class Level : MonoBehaviour, ILevel
     private LevelFinishTrigger _finishTrigger = null;
     private Transform _playerSpawn = null;
     private List<KeyValuePair<string, Vector3>> _enemiesSpawns = new List<KeyValuePair<string, Vector3>>();
+    private List<KeyValuePair<string, Vector3>> _itemsSpawns = new List<KeyValuePair<string, Vector3>>();
 
     private GameEvents _gameEvents = null;
 
@@ -19,6 +20,7 @@ public class Level : MonoBehaviour, ILevel
     public Transform Transform => transform;
     public Vector3 PlayerSpawnPoint => _playerSpawn.position;
     public List<KeyValuePair<string, Vector3>> EnemySpawnPoints => _enemiesSpawns;
+    public List<KeyValuePair<string, Vector3>> ItemsSpawnPoints => _itemsSpawns;
 
     public void Init(GameEvents gameEvents)
     {
@@ -27,16 +29,27 @@ public class Level : MonoBehaviour, ILevel
 
     private void Awake()
     {
-        UnitMarker[] markers = transform.GetComponentsInChildren<UnitMarker>(false);
-        foreach (var marker in markers)
         {
-            if (marker.Id != "Player")
+            UnitMarker[] markers = transform.GetComponentsInChildren<UnitMarker>(false);
+
+            foreach (var marker in markers)
             {
-                _enemiesSpawns.Add(new KeyValuePair<string, Vector3>(marker.Id, marker.transform.position));
+                if (marker.Id != GameController.PLAYER_ID)
+                {
+                    _enemiesSpawns.Add(new KeyValuePair<string, Vector3>(marker.Id, marker.transform.position));
+                }
+                else
+                {
+                    _playerSpawn = marker.transform;
+                }
             }
-            else
+        }
+
+        {
+            GameItemMarker[] markers = transform.GetComponentsInChildren<GameItemMarker>(false);
+            foreach (var marker in markers)
             {
-                _playerSpawn = marker.transform;
+                _itemsSpawns.Add(new KeyValuePair<string, Vector3>(marker.Id, marker.transform.position));
             }
         }
 

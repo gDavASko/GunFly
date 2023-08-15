@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class ThrowableKnifeObject : WeaponDamageTriggerBase, IThrowableWeaponObject
 {
-    public const string PLAYER_ID = "Player";
-
     [SerializeField] private float _flyDeltaTime = 0.005f;
     [SerializeField] private float _maxFlyDistance = 10f;
 
@@ -34,7 +32,7 @@ public class ThrowableKnifeObject : WeaponDamageTriggerBase, IThrowableWeaponObj
     private IEnumerator ThrowSelf()
     {
         Vector3 iniPos = transform.position;
-        bool isNotPlayer = _owner.tag != PLAYER_ID;
+        bool isNotPlayer = !_owner.CompareTag(GameController.PLAYER_ID);
         Vector3 targetPos = iniPos + (isNotPlayer ? -1 : 1) * transform.right  * 10f;
         float angle = (isNotPlayer ? 1 : -1) * 6f;
 

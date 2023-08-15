@@ -8,6 +8,12 @@ public class SystemDontDestroyInitialization : MonoInstaller
    {
       Container.Bind<GameEvents>().AsSingle();
       Container.Bind<UnitEvents>().AsSingle();
+      Container.Bind<ItemEvents>().AsSingle();
+
+      Container.Bind<IStatistic<int>>()
+         .To<StorableStatistic<int>>()
+         .AsSingle()
+         .NonLazy();
 
       /* #if UNITY_ANDROID
        Container.Bind(typeof(IInput), typeof(ITickable))
@@ -56,6 +62,10 @@ public class SystemDontDestroyInitialization : MonoInstaller
 
       Container.Bind<IWeaponFactory>()
          .To<WeaponFactory>()
+         .AsSingle();
+
+      Container.Bind<IGameItemsFactory>()
+         .To<GameItemsFactory>()
          .AsSingle();
 
       Container.Bind<IUIFactory>()

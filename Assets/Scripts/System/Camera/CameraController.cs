@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour, ICameraController
 
     private void OnUnitCreated(IUnit unit)
     {
-        if (unit.Transform.CompareTag("Player"))
+        if (unit.Transform.CompareTag(GameController.PLAYER_ID))
         {
             _player = unit;
         }

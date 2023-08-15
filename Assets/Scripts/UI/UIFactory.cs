@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 public class UIFactory : IUIFactory
 {
+    //ToDo: move cache logic to pool controller
     private IGettableAsset _assetGetter = null;
     private IWeaponFactory _weaponFactory = null;
     private Dictionary<string, IUIElement> _cachedElements = new Dictionary<string, IUIElement>();

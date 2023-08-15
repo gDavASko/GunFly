@@ -21,6 +21,30 @@ MonoBehaviour:
     m_Address: Level_0
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 9b022b33dc042a342a9f44c1c1592ff7
+    m_Address: Level_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cab1122c61e7d6245a294bfaa6ee5bbd
+    m_Address: Level_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cfd5f1b3786bb8f40ac7bd7a736335c3
+    m_Address: Level_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 17806d4aad4db84489fd14205dfd622d
+    m_Address: Level_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a66842cbcf517ed4bbcfe04b2fb0bbf8
+    m_Address: Level_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: edf252444659db043a16d247290760fb
+    m_Address: Level_6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 23295e53cd7cf16499326111c565e052, type: 2}
   m_SchemaSet:

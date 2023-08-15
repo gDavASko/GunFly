@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  m_GroupName: Items
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5647b85b31e8dac4cb0373856b7a901d
+  m_SerializeEntries:
+  - m_GUID: 1f95c3c2de46fd04d9261d3a9e3053a2
+    m_Address: Item_sword
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2b0dc8057a4b7884dabb6d27ba89eb9f
+    m_Address: Item_throw_knife
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 23295e53cd7cf16499326111c565e052, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c8c4270bc57fd0d439b361b3e046b859, type: 2}
+    - {fileID: 11400000, guid: afadd5c70658f8c45835cc4b24d07ac0, type: 2}

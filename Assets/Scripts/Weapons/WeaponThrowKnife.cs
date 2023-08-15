@@ -29,5 +29,6 @@ public class WeaponThrowKnife : WeaponBase
     public override void Dispose()
     {
         _objectSpawner.Dispose();
+        gameObject.SetActive(false);
     }
 }

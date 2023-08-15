@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponInitConfigsSO
   m_EditorClassIdentifier: 
   _configs:
-  - _unitId: Player
-    _weaponId: Weapon_sword
   - _unitId: Enemy_attack
     _weaponId: Weapon_throwing_knife
+  - _unitId: Enemy_attack_sword
+    _weaponId: Weapon_sword

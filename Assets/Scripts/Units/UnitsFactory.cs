@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UnitsFactory : IUnitsFactory
 {
+    //ToDo: move cache logic to pool controller
     private IGettableAsset _assetGetter = null;
     private IWeaponFactory _weaponFactory = null;
     private UnitEvents _unitEvents = null;

@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: Enemy_attack
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 1bc9284506c3ab444ae53d6568ee6602
+    m_Address: Enemy_attack_sword
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 23295e53cd7cf16499326111c565e052, type: 2}
   m_SchemaSet:
