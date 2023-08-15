@@ -248,9 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316a4ba8b1ee1154b86175ff8002421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: LightTap
-  _loop: 0
+  _soundIds:
+  - Start
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance
+  _soundOnClickId: Start
 --- !u!1 &4244159681046304689
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb26ffa283c4b2e418fc3cf6e17fe039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundOnOpen: Open
   _textLevel: {fileID: 1712293893117524234}
   _buttonPlay: {fileID: 1574508124420737574}
 --- !u!1 &6875540345968862733

@@ -313,9 +313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316a4ba8b1ee1154b86175ff8002421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: LightTap
-  _loop: 0
+  _soundIds:
+  - LightTap
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance
+  _soundOnClickId: LightTap
 --- !u!1 &4244159681046304689
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312c7528a28eb943a3fd92330498c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundOnOpen: Open
   _textLevelComplete: {fileID: 6982530230617253522}
   _textLevelScore: {fileID: 3828298640009169810}
   _textBestScore: {fileID: 4806875583965016824}

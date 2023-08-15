@@ -105,6 +105,7 @@ MonoBehaviour:
   _jumpEnableTags:
   - Ground
   - Enemy
+  _soundOnJump: Jump
 --- !u!114 &4805417438942785691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHitpoints: 10
+  _soundOnDeath: Throw2
+  _soundOnHit: Jump4
 --- !u!114 &-781714925403633871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: Jump4
-  _loop: 0
+  _soundIds:
+  - Jump
+  - Jump4
+  - Throw2
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance
 --- !u!1 &3877515935203645026
 GameObject:
   m_ObjectHideFlags: 0

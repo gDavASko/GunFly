@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public abstract class UIElementBase : MonoBehaviour, IUIElement
 {
+    [SerializeField] private string _soundOnOpen = "Open";
     //ToDo: Move sounds to sound event system
     private IAudioPlayer _soundShow = null;
 
@@ -38,7 +39,8 @@ public abstract class UIElementBase : MonoBehaviour, IUIElement
 
     public virtual void Show(bool force = false)
     {
-        _soundShow?.PlaySound();
+        //ToDo: Remake hardcode to switch variant
+        _soundShow?.PlaySound(_soundOnOpen);
 
         if (!force && _animator != null)
         {

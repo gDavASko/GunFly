@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class LevelFinishTrigger : MonoBehaviour
 {
+    [SerializeField] private string _soundOpenId = "Open";
     //ToDo: Move sounds to sound event system
     private IAudioPlayer _soundFinish = null;
 
@@ -18,7 +19,8 @@ public class LevelFinishTrigger : MonoBehaviour
     {
         if (col.CompareTag(GameController.PLAYER_ID))
         {
-            _soundFinish?.PlaySound();
+            //ToDo: Remake hardcode to switch variant
+            _soundFinish?.PlaySound(_soundOpenId);
             OnLevelFinish?.Invoke();
         }
     }

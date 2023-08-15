@@ -5,6 +5,8 @@ public class HitPointSystem : MonoBehaviour, IHitPointSystem
 {
     [SerializeField] private float _maxHitpoints = 10f;
 
+    [SerializeField] private string _soundOnDeath = "Death";
+    [SerializeField] private string _soundOnHit = "Hit";
 
     //ToDo: Move audio damage sound to audio event system
     private IAudioPlayer _soundDamage = null;
@@ -29,12 +31,22 @@ public class HitPointSystem : MonoBehaviour, IHitPointSystem
 
         HitPoints -= value;
 
-        _soundDamage?.PlaySound();
+
 
         OnHPChanged?.Invoke(value);
 
-        if(HitPoints <= 0)
+        if (HitPoints <= 0)
+        {
             OnDeath?.Invoke();
+
+            //ToDo: Remake hardcode to switch variant
+            _soundDamage?.PlaySound(_soundOnDeath);
+        }
+        else
+        {
+            //ToDo: Remake hardcode to switch variant
+            _soundDamage?.PlaySound(_soundOnHit);
+        }
     }
 
     public void Kill()

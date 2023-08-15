@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageId: Weapon_throwing_knife
+  _attackSoundName: Throw
 --- !u!114 &606257446061687245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: Throw
-  _loop: 0
+  _soundIds:
+  - Throw
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance

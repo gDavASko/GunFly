@@ -313,9 +313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316a4ba8b1ee1154b86175ff8002421d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: LightTap
-  _loop: 0
+  _soundIds:
+  - LightTap
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance
+  _soundOnClickId: LightTap
 --- !u!1 &4244159681046304689
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7134423591657200483}
   - component: {fileID: 2635687843984173742}
+  - component: {fileID: -4980753685130127118}
   m_Layer: 5
   m_Name: WindowFail
   m_TagString: Untagged
@@ -953,10 +956,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312c7528a28eb943a3fd92330498c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundOnOpen: Lose
   _textLevelComplete: {fileID: 6982530230617253522}
   _textLevelScore: {fileID: 3828298640009169810}
   _textBestScore: {fileID: 4806875583965016824}
   _buttonContinue: {fileID: 1574508124420737574}
+--- !u!114 &-4980753685130127118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628136388227575708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundIds:
+  - Lose
+  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance
 --- !u!1 &6658326194456625099
 GameObject:
   m_ObjectHideFlags: 0

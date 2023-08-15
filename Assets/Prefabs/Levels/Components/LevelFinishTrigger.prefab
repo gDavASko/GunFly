@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6cb13b2d1643c4881b9eb938d85fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundOpenId: Win
 --- !u!50 &1829064589925524231
 Rigidbody2D:
   serializedVersion: 4
@@ -107,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: Win
+  _soundIds:
+  - Win
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
   _goSoundId: SoundInstance
 --- !u!212 &5770176481483984961

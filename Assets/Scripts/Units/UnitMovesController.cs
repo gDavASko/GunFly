@@ -10,7 +10,15 @@ public class UnitMovesController : MonoBehaviour, IController
     [SerializeField] private int _maxJumpCount = 2;
     [SerializeField] private string[] _jumpEnableTags = new string[] { "Ground", "Enemy" };
 
+    [SerializeField] private string _soundOnJump = "Jump";
+
     private int _jumpCounter = 0;
+    private IAudioPlayer _audioPlayer = null;
+
+    private void Awake()
+    {
+        _audioPlayer = GetComponent<IAudioPlayer>();
+    }
 
     public void Init(IInput input)
     {
@@ -27,6 +35,7 @@ public class UnitMovesController : MonoBehaviour, IController
     {
         _jumpCounter++;
         _rigidBody.AddForce(_jumpForce, ForceMode2D.Impulse);
+        _audioPlayer?.PlaySound(_soundOnJump);
     }
 
     private void OnTriggerEnter2D(Collider2D col)

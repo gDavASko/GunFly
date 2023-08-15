@@ -4,10 +4,12 @@ using UnityEngine;
 public abstract class WeaponBase : MonoBehaviour, IWeapon
 {
     [SerializeField] protected string _damageId = "damage";
+    [SerializeField] protected string _attackSoundName = "Attack";
 
     protected IDamageConfig _damageConfig = null;
     protected GameObject _owner = null;
     protected string _targetTag = string.Empty;
+
 
     //ToDo: move audio to audio event system
     protected IAudioPlayer _audioPlayer = null;
@@ -24,7 +26,8 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
         if(!gameObject.activeSelf || !gameObject.activeInHierarchy)
             return;
 
-        _audioPlayer?.PlaySound();
+        //ToDo: Remake hardcode to switch variant
+        _audioPlayer?.PlaySound(_attackSoundName);
     }
 
     public virtual void Init(GameObject owner, IDamageConfig damageConfig, string targetTag)

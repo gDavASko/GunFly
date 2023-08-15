@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public abstract class GameItemBase : MonoBehaviour, IGameItem
 {
+    [SerializeField] private string _soundGetItem = "SwitchElement";
+
     protected ItemEvents _itemEvents = null;
     protected IAudioPlayer _audioPlayer = null;
 
@@ -32,7 +34,8 @@ public abstract class GameItemBase : MonoBehaviour, IGameItem
     {
         if (col.CompareTag(GameController.PLAYER_ID))
         {
-            _audioPlayer?.PlaySound();
+            //ToDo: Remake hardcode to switch variant
+            _audioPlayer?.PlaySound(_soundGetItem);
 
             if(_itemEvents.OnItemPlayerCollision != null)
                 _itemEvents.OnItemPlayerCollision(this);

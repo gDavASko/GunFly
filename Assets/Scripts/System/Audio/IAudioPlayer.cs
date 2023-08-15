@@ -1,4 +1,4 @@
 ﻿public interface IAudioPlayer
 {
-    void PlaySound();
+    void PlaySound(string audioId);
 }

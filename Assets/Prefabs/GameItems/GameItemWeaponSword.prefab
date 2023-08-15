@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192a39e3f1edcf94298960dd5e4a00ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundGetItem: SwitchElement
   _weaponId: Weapon_sword
 --- !u!58 &6937761768527696220
 CircleCollider2D:
@@ -98,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundId: SwitchElement
+  _soundIds:
+  - SwitchElement
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
   _goSoundId: SoundInstance
 --- !u!1 &6178388541161606078

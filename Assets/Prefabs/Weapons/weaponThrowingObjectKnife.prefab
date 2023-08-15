@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 1956754257938321650}
   - component: {fileID: 9072861671779977442}
   - component: {fileID: 32096150153926232}
-  - component: {fileID: 2081223378061604970}
   m_Layer: 0
   m_Name: weaponThrowingObjectKnife
   m_TagString: Untagged
@@ -286,18 +285,3 @@ PolygonCollider2D:
       - {x: -0.21120273, y: -0.11271856}
       - {x: 0.12159602, y: 0.41568536}
       - {x: 0.49360055, y: 0.5460061}
---- !u!114 &2081223378061604970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9123764399581844741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24089c856ee0a534bb8c7c16c38cd47b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundId: ThrowCling
-  _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
-  _goSoundId: SoundInstance

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class UIButtonClickSound : AudioPlayer
 {
+    [SerializeField] private string _soundOnClickId = "LightTap";
     private Button _button = null;
     private void Awake()
     {
@@ -14,6 +15,7 @@ public class UIButtonClickSound : AudioPlayer
 
     private void OnClickButton()
     {
-        base.PlaySound();
+        //ToDo: Remake hardcode to switch variant
+        base.PlaySound(_soundOnClickId);
     }
 }
