@@ -8,12 +8,12 @@ public class ThrowableKnifeObject : WeaponDamageTriggerBase, IThrowableWeaponObj
 {
     public const string PLAYER_ID = "Player";
 
-    [SerializeField] private float _flyDeltaTime = 0.001f;
+    [SerializeField] private float _flyDeltaTime = 0.005f;
     [SerializeField] private float _maxFlyDistance = 10f;
 
     private Coroutine _throwPlay = null;
     private bool _continueFly = true;
-    private WaitForEndOfFrame _flyWaiter = new WaitForEndOfFrame();
+    private WaitForFixedUpdate _flyWaiter = new WaitForFixedUpdate();
 
     public Transform Transform => transform;
 
@@ -34,12 +34,14 @@ public class ThrowableKnifeObject : WeaponDamageTriggerBase, IThrowableWeaponObj
     private IEnumerator ThrowSelf()
     {
         Vector3 iniPos = transform.position;
-        Vector3 targetPos = iniPos + (_owner.tag != PLAYER_ID ? -1 : 1) * transform.right  * 10f;
+        bool isNotPlayer = _owner.tag != PLAYER_ID;
+        Vector3 targetPos = iniPos + (isNotPlayer ? -1 : 1) * transform.right  * 10f;
+        float angle = (isNotPlayer ? 1 : -1) * 6f;
 
         for (float i = 0; i <= 1 && _continueFly; i += _flyDeltaTime)
         {
             transform.position = Vector3.Lerp(iniPos, targetPos, i);
-            transform.Rotate(new Vector3(0f, 0f, -1.5f));
+            transform.Rotate(new Vector3(0f, 0f, angle));
             yield return _flyWaiter;
         }
 

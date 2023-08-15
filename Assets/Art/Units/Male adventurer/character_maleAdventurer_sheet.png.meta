@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -1116,10 +1116,10 @@ TextureImporter:
       character_maleAdventurer_sheet_4: 2066920569
       character_maleAdventurer_sheet_2: -2077679261
       character_maleAdventurer_sheet_7: -249369467
-      character_maleAdventurer_sheet_11: -910921547
       character_maleAdventurer_sheet_23: -2023144661
-      character_maleAdventurer_sheet_42: 1217285388
+      character_maleAdventurer_sheet_11: -910921547
       character_maleAdventurer_sheet_32: -1697447067
+      character_maleAdventurer_sheet_42: 1217285388
       character_maleAdventurer_sheet_36: 1661539556
       character_maleAdventurer_sheet_34: -1304079184
       character_maleAdventurer_sheet_22: 665537875

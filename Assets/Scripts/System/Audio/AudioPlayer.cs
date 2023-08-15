@@ -43,6 +43,7 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
             return;
         }
 
+        //ToDo: remake to pool object Get
         var audio = Instantiate(_audioObject).GetComponent<AudioSource>();
         audio.clip = _clip;
         audio.Play();
@@ -52,7 +53,9 @@ public class AudioPlayer : MonoBehaviour, IAudioPlayer
 
     private async UniTaskVoid DestroyAfterSound(GameObject soundGO)
     {
-        await UniTask.WaitForSeconds(_clip.length + 0.1f);
+        await UniTask.WaitForSeconds(_clip.length + 0.1f, true);
+
+        //ToDo: remake to pool object Release
         Destroy(soundGO);
     }
 }

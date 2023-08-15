@@ -9,7 +9,7 @@ public class WeaponSword : WeaponBase
     [SerializeField] private Transform _rotator = null;
 
     private IWeaponDamageTrigger _wepDamageTrigger = null;
-    private WaitForEndOfFrame _waiter = null;
+    private WaitForFixedUpdate _waiter = null;
     private Coroutine _attackPlay = null;
     private Vector3 _initWeaponPos = default;
 
@@ -19,7 +19,7 @@ public class WeaponSword : WeaponBase
 
         _wepDamageTrigger = GetComponentInChildren<IWeaponDamageTrigger>();
         _wepDamageTrigger.Init(damageConfig, owner, targetTag);
-        _waiter = new WaitForEndOfFrame();
+        _waiter = new WaitForFixedUpdate();
         _initWeaponPos = _rotator.eulerAngles;
     }
 
@@ -47,7 +47,7 @@ public class WeaponSword : WeaponBase
 
         _wepDamageTrigger.IsActivated = true;
 
-        for (float i = 0; i < 1; i += 0.01f)
+        for (float i = 0; i < 1; i += 0.05f)
         {
             _rotator.rotation = Quaternion.Euler(Vector3.Lerp(rotationInit, rotationTarget, i));
             yield return _waiter;

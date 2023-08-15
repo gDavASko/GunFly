@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -220,7 +221,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -251,6 +252,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3181ee3b783a8384ea0abfb01b0929ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smoothTime: 0.5
+  _cameraOffset: {x: 0, y: 1, z: -10}
+  _initPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &670761408
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameController: {fileID: 462535066}
   _uiController: {fileID: 670761413}
+  _cameraController: {fileID: 519420033}
 --- !u!114 &707185166
 MonoBehaviour:
   m_ObjectHideFlags: 0

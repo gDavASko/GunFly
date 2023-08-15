@@ -21,6 +21,9 @@ public abstract class WeaponBase : MonoBehaviour, IWeapon
 
     public virtual void Attack()
     {
+        if(!gameObject.activeSelf || !gameObject.activeInHierarchy)
+            return;
+
         _audioPlayer?.PlaySound();
     }
 

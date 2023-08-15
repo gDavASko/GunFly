@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkStayState: 0
-  _flyDeltaTime: 0.001
+  _flyDeltaTime: 0.01
   _maxFlyDistance: 10
 --- !u!212 &1956754257938321650
 SpriteRenderer:
@@ -299,5 +299,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundId: ThrowCling
-  _loop: 0
   _mixer: {fileID: 24100000, guid: 8ad1dac377015a342bc00fa753f020b9, type: 2}
+  _goSoundId: SoundInstance

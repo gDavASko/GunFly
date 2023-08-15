@@ -73,6 +73,10 @@ MonoBehaviour:
     m_Address: Lose
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: b8063a667e588f743966727c043e4b92
+    m_Address: SoundInstance
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 23295e53cd7cf16499326111c565e052, type: 2}
   m_SchemaSet:
